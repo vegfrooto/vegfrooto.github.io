@@ -1,71 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Vegfrooto</title>
     <meta property="og:title" content="Fresh and Tasty Produce Delivered to Your Doorstep" />
-    <meta property="og:description" content="Experience the freshest fruits and vegetables, handpicked and delivered to you in one click." />
-  <!--  <meta property="og:image:secure_url" content="https://vegfrooto.com/fulllogo.png" /> -->
-	<meta property="og:image" content="https://vegfrooto.com/appstore.png" />
-	<meta property="og:image:secure_url" content="https://vegfrooto.com/appstore.png" />
-	
-	<meta property="og:image:type" content="image/png"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
+    <meta property="og:description"
+        content="Experience the freshest fruits and vegetables, handpicked and delivered to you in one click." />
+    <!--  <meta property="og:image:secure_url" content="https://vegfrooto.com/fulllogo.png" /> -->
+    <meta property="og:image" content="https://vegfrooto.com/appstore.png" />
+    <meta property="og:image:secure_url" content="https://vegfrooto.com/appstore.png" />
+
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://vegfrooto.com/" />
-	 <meta property="og:url" content="https://www.vegfrooto.com/" />
+    <meta property="og:url" content="https://www.vegfrooto.com/" />
     <meta property="og:type" content="website" />
 </head>
+
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
     <!-- Header -->
     <header style="background-color: #18622A; padding: 10px; text-align: center;">
         <img src="logo.png" alt="Vegfrooto Logo" style="height: 50px;">
     </header>
 
+    <!-- START HERE -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Style The Contact Form How Ever You Prefer -->
+
     <section style="padding: 20px; text-align: center;"> <!-- Center alignment for section -->
         <h2 style="color: #18622A;">Get in Touch</h2>
-        <p>If you have any questions or need assistance, feel free to contact us. We're here to help with your fruit and vegetable orders!</p>
+        <p>If you have any questions or need assistance, feel free to contact us. We're here to help with your fruit and
+            vegetable orders!</p>
 
         <div style="margin-top: 20px;">
             <h3 style="color: #18622A;">Customer Support</h3>
             <p>Email: vegfrooto@gmail.com</p>
             <p>WhatsApp: +91 8875441123</p> <!-- Replaced Phone with WhatsApp -->
+            <h3 style="color: #18622A;">Send Us a Message</h3>
         </div>
         <form class="gform pure-form pure-form-stacked" method="POST"
-        action="https://script.google.com/macros/s/AKfycbyxCpd0D7Z8P0aYa_goNtUhZVEBTkvIQAlCqHZG2OxzWGb98ro1VrsUUQCiIFKjDlI/exec"
-        style="margin-top: 30px; text-align: center;"> 
-        
-                  <!-- change the form action to your script url -->
-                  <div class="form-elements">
-        <!-- Center alignment for form -->
-            <h3 style="color: #18622A;">Send Us a Message</h3>
-            <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-            <input type="text" id="name" name="name" 
-                   style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            action="https://script.google.com/macros/s/AKfycbyxCpd0D7Z8P0aYa_goNtUhZVEBTkvIQAlCqHZG2OxzWGb98ro1VrsUUQCiIFKjDlI/exec"
+            style="margin-top: 30px; text-align: center;">
 
-            <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-            <input type="email" id="email" name="email" 
-                   style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            <!-- change the form action to your script url -->
+            <div class="form-elements">
+                <!-- Center alignment for form -->
+                <fieldset class="pure-group">
+                    <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+                    <input type="text" id="name" name="name"
+                        style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
 
-            <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
-            <input type="tel" id="mobile" name="mobile" 
-                   style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" placeholder="+91 ">
+                </fieldset>
 
-            <label for="message" style="display: block; margin-bottom: 5px;">Message:</label>
-            <textarea id="message" name="message" 
-                      style="width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" rows="5"></textarea>
-<br>
-                      <button type="submit" style="margin-top: 20px; padding: 10px 20px; background-color: #18622a; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
-         
-                    </div>
+                <fieldset class="pure-group">
+                    <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                    <input type="email" id="email" name="email"
+                        style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+                </fieldset>
 
-                    <!-- Customise the Thankyou Message People See when they submit the form: -->
-                    <div class="thankyou_message" style="display:none;">
-                      <h2><em>Thanks</em> for contacting us!
-                        We will get back to you soon!</h2>
-                    </div>
+                <fieldset class="pure-group">
+                    <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
+                    <input type="tel" id="mobile" name="mobile"
+                        style="width: 100%; max-width: 400px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"
+                        placeholder="+91 ">
+                </fieldset>
+
+                <fieldset class="pure-group">
+                    <label for="message" style="display: block; margin-bottom: 5px;">Message:</label>
+                    <textarea id="message" name="message"
+                        style="width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+                        rows="5"></textarea>
+                </fieldset>
+
+
+                <button class="pure-button" type="submit"
+                    style="margin-top: 20px; padding: 10px 20px; background-color: #18622a; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+
+            </div>
+
+            <!-- Customise the Thankyou Message People See when they submit the form: -->
+            <div class="thankyou_message" style="display:none;">
+                <h2><em>Thanks</em> for contacting us!
+                    We will get back to you soon!</h2>
+            </div>
         </form>
     </section>
 
@@ -78,17 +99,25 @@
     <!-- Inline Media Queries for Responsiveness -->
     <style>
         @media (max-width: 600px) {
-            input, textarea, button {
-                width: 100%; /* Full width on mobile */
-                max-width: none; /* Remove max-width for mobile */
+
+            input,
+            textarea,
+            button {
+                width: 100%;
+                /* Full width on mobile */
+                max-width: none;
+                /* Remove max-width for mobile */
             }
-            h3, p {
-                font-size: 16px; /* Adjusted font size for mobile */
+
+            h3,
+            p {
+                font-size: 16px;
+                /* Adjusted font size for mobile */
             }
         }
     </style>
 
-<script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
+    <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 
 </body>
 </html>
