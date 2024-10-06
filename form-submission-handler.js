@@ -43,7 +43,7 @@
 
     // add form-specific values into the data
     formData.formDataNameOrder = JSON.stringify(fields);
-    formData.formGoogleSheetName = form.dataset.sheet || "contactus"; // default sheet name
+    formData.formGoogleSheetName =  "contactus"; // default sheet name
     formData.formGoogleSendEmail
       = form.dataset.email || ""; // no email by default
 
