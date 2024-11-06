@@ -109,6 +109,7 @@
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    color: #333;
 }
 
 .popup-content {
@@ -120,7 +121,17 @@
     width: 90%;
     max-width: 300px;
 }
+.popup-content h2 {
+    color: #333; /* Title color */
+    font-size: 1.5em;
+    margin: 10px 0;
+}
 
+.popup-content p {
+    color: #666; /* Paragraph text color */
+    font-size: 1em;
+    margin: 5px 0 15px;
+}
 .app-logo {
     width: 80px;
     height: 80px;
@@ -996,6 +1007,9 @@
         function showPopup() {
             if (isMobileDevice()) {
                 document.getElementById("app-install-popup").style.display = "flex";
+
+		    // Set a timer to automatically close the popup after 6 seconds
+                setTimeout(closePopup, 5000);
             }
         }
 
