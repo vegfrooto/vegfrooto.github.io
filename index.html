@@ -96,6 +96,55 @@
 
 	<!-- Fonts and Material Icons -->
 	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
+<style>
+	/* Popup Styles */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 300px;
+}
+
+.app-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.install-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.cancel-button {
+    display: inline-block;
+    margin-top: 10px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+</style>
  
 </head>
 <body class="slides horizontal simplifiedMobile animated">
@@ -922,6 +971,41 @@
 
 <!-- Loading Progress Bar -->
 <div class="progress-bar blue"></div>
+
+	<!-- App Install Popup -->
+<div id="app-install-popup" class="popup-overlay">
+    <div class="popup-content">
+        <img src="/apple-touch-icon.png" alt="App Logo" class="app-logo">
+        <h2>Install Our App</h2>
+        <p>Get the best experience by installing our app on your device.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.imutant.vegfrooto" class="install-button">Install</a>
+        <button class="cancel-button" onclick="closePopup()">Cancel</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to detect if the user is on a mobile device
+        function isMobileDevice() {
+            return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+        }
+
+        // Function to show the popup
+        function showPopup() {
+            if (isMobileDevice()) {
+                document.getElementById("app-install-popup").style.display = "flex";
+            }
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("app-install-popup").style.display = "none";
+        }
+
+        // Trigger the popup after a short delay (e.g., 2 seconds)
+        setTimeout(showPopup, 2000);
+    });
+</script>
+
 		
 </body>
 </html>
