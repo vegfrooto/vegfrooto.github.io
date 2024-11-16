@@ -50,56 +50,65 @@
     
     
 <!-- question ends here -->
-        <form class="gform pure-form pure-form-stacked" method="POST"
-            action="https://script.google.com/macros/s/AKfycbzh9SHfFvnKSdCuixSrsvwdlhFLc6ld5s-lwm5MDeWSMKySNvDZip34ddd_nGOat-wUFA/exec"
-            style="margin-top: 30px; text-align: center;">
-    
-            <div class="form-elements" style="text-align: center;"> <!-- Center alignment for form -->
+<form class="gform pure-form pure-form-stacked" method="POST"
+action="https://script.google.com/macros/s/AKfycbzh9SHfFvnKSdCuixSrsvwdlhFLc6ld5s-lwm5MDeWSMKySNvDZip34ddd_nGOat-wUFA/exec"
+style="margin-top: 30px; text-align: center;" onsubmit="return validateForm(event)">
 
-                <!-- here -->
-                <fieldset class="pure-group" style="text-align: center;">
-                    <label for="Answer here " style="display: block; margin-bottom: 5px;">Answer:</label>
-                    <input type="text" id="Answer here " name="Answer here "
-                        style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-                </fieldset>
-                 <!---->
-                <fieldset class="pure-group" style="text-align: center;">
-                    <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-                    <input type="text" id="name" name="name"
-                        style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-                </fieldset>
-    
-                <fieldset class="pure-group" style="text-align: center;">
-                    <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-                    <input type="email" id="email" name="email"
-                        style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-                </fieldset>
-    
-                <fieldset class="pure-group" style="text-align: center;">
-                    <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
-                    <input type="tel" id="mobile" name="mobile"
-                        style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;"
-                        placeholder="+91 ">
-                </fieldset>
-    
-                <fieldset class="pure-group" style="text-align: center;">
-                    <label for="message" style="display: block; margin-bottom: 5px;">Message:</label>
-                    <textarea id="message" name="message"
-                        style="width: 80%; max-width: 600px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;" rows="5"></textarea>
-                </fieldset>
-            </div>
-    
-            <br>
-    
-            <button class="pure-button" type="submit"
-                style="margin-top: 20px; padding: 10px 20px; background-color: #18622a; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                Submit
-            </button>
-    
-            <div class="thankyou_message" style="display:none;">
-                <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
-            </div>
-        </form>
+<div class="form-elements" style="text-align: center;">
+
+  <!-- Answer Field -->
+  <fieldset class="pure-group" style="text-align: center;">
+      <label for="answer" style="display: block; margin-bottom: 5px;">Answer:</label>
+      <input type="text" id="answer" name="answer" required
+             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
+  </fieldset>
+
+  <!-- Name Field -->
+  <fieldset class="pure-group" style="text-align: center;">
+      <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+      <input type="text" id="name" name="name" required
+             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
+  </fieldset>
+
+  <!-- Email Field -->
+  <fieldset class="pure-group" style="text-align: center;">
+      <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+      <input type="email" id="email" name="email" required
+             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
+  </fieldset>
+
+  <!-- Mobile Number Field -->
+  <fieldset class="pure-group" style="text-align: center;">
+      <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
+      <input type="tel" id="mobile" name="mobile" required pattern="^\+91\d{10}$"
+             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;"
+             placeholder="+91 " title="Please enter a valid mobile number starting with +91 and followed by 10 digits.">
+  </fieldset>
+
+  <!-- Message Field -->
+  <fieldset class="pure-group" style="text-align: center;">
+      <label for="message" style="display: block; margin-bottom: 5px;">Message:</label>
+      <textarea id="message" name="message" required
+                style="width: 80%; max-width: 600px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;" rows="5"></textarea>
+  </fieldset>
+
+</div>
+<div id="loader" style="display:none; text-align: center;">
+    <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." /> <!-- You can replace this with any loader GIF or animation -->
+</div>
+<br>
+
+<button class="pure-button" type="submit"
+      style="margin-top: 20px; padding: 10px 20px; background-color: #18622a; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  Submit
+</button>
+
+<div class="thankyou_message" style="display:none;">
+  <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
+</div>
+
+</form>
+
     </section>
     
 
