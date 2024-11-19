@@ -10,6 +10,16 @@
     }
 });
 
+document.getElementById('campaign_mobile').addEventListener('input', function(event) {
+  var input = event.target;
+  var value = input.value;
+
+  // If the value contains exactly 10 digits and no "+91" at the beginning
+  if (value.length === 10 && !value.startsWith("+91")) {
+      input.value = "+91" + value; // Prepend +91 to the number
+  }
+});
+
 // Function to validate form
 function validateForm(event) {
     var form = event.target;
@@ -24,6 +34,8 @@ function validateForm(event) {
 
         // Skip the honeypot field if it exists
         if (el.answer === "modi" || el.answer === "narendera modi" || el.answer === "damodar modi" ) continue;
+
+        if (el.campaign_answer === "veg123") continue;
 
         // Check if the element is required and has a value
         if (el.required && !el.value.trim()) {
@@ -122,12 +134,20 @@ document.querySelectorAll("input, textarea").forEach(function(el) {
     var form = event.target;
 
     var answerField = form.querySelector('[name="answer"]'); // Get the answer field
+    if  (answerField == null) {
+      answerField = form.querySelector('[name="campaign_answer"]'); // Get the answer field
+    }
+
+    //alert(answerField);
 // Check if the answer is correct
 var userAnswer = answerField.value.trim().toLowerCase(); // Get the answer and convert it to lowercase for case-insensitive comparison
-if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi") {
-    alert("Please enter the correct answer for the Prime Minister of India.");
+if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi" && userAnswer !== "veg123") {
+    alert("Please enter the correct answer.");
     return; // Return early if the answer is incorrect
 }
+
+
+
     // we are submitting via xhr below
     var form = event.target;
     var formData = getFormData(form)
