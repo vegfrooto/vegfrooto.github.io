@@ -35,7 +35,7 @@ function validateForm(event) {
         // Skip the honeypot field if it exists
         if (el.answer === "modi" || el.answer === "narendera modi" || el.answer === "damodar modi" ) continue;
 
-        if (el.campaign_answer === "veg123") continue;
+      //  if (el.campaign_answer === "veg123") continue;
 
         // Check if the element is required and has a value
         if (el.required && !el.value.trim()) {
@@ -63,6 +63,51 @@ function validateForm(event) {
     // Show thank you message on successful form submission
     form.querySelector('.thankyou_message').style.display = 'block';
     return true;
+}
+
+// Function to validate form
+function validateCForm(event) {
+  var form = event.target;
+  var elements = form.elements;
+
+  // Initialize a flag to track validation success
+  var isValid = true;
+
+  // Loop through all form elements to check for required fields
+  for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+
+      // Skip the honeypot field if it exists
+      // if (el.answer === "modi" || el.answer === "narendera modi" || el.answer === "damodar modi" ) continue;
+
+     if (el.campaign_answer === "veg123") continue;
+
+      // Check if the element is required and has a value
+      if (el.required && !el.value.trim()) {
+          isValid = false;
+          // Highlight the invalid field (optional)
+          el.style.borderColor = 'red';
+          // Show a message for the user (optional)
+          if (el.nextElementSibling) {
+              var errorMsg = document.createElement('span');
+              errorMsg.style.color = 'red';
+              errorMsg.textContent = 'This field is required';
+              el.parentNode.appendChild(errorMsg);
+          }
+      } else {
+          el.style.borderColor = '';  // Reset the border color if valid
+      }
+  }
+
+  // If any field is invalid, prevent form submission
+  if (!isValid) {
+      event.preventDefault();
+      return false;
+  }
+
+  // Show thank you message on successful form submission
+  form.querySelector('.thankyou_message').style.display = 'block';
+  return true;
 }
 
 // To prevent the error message from showing after the user fixes the input
@@ -187,6 +232,11 @@ if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "n
   function loaded() {
     // bind to the submit event of our form
     var forms = document.querySelectorAll("form.gform");
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener("submit", handleFormSubmit, false);
+    }
+
+    var forms = document.querySelectorAll("form.cform");
     for (var i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
     }
