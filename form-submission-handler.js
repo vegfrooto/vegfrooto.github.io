@@ -173,20 +173,67 @@ document.querySelectorAll("input, textarea").forEach(function(el) {
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
 
+    event.preventDefault(); 
+    var form = event.target;
+
+    var answerField = form.querySelector('[name="answer"]'); // Get the answer field
+   
+var userAnswer = answerField.value.trim().toLowerCase(); // Get the answer and convert it to lowercase for case-insensitive comparison
+if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi" ) {
+    alert("Please enter the correct answer.");
+    return; // Return early if the answer is incorrect
+}
+
+
+
+    // we are submitting via xhr below
+    var form = event.target;
+    var formData = getFormData(form)
+    var data = formData.data;
+
+    // If a honeypot field is filled, assume it was done so by a spam bot.
+    if (formData.honeypot) {
+      return false;
+    }
+
+    disableAllButtons(form);
+    var url = form.action;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    // xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          form.reset();
+          var formElements = form.querySelector(".form-elements")
+          if (formElements) {
+            formElements.style.display = "none"; // hide form
+          }
+          var thankYouMessage = form.querySelector(".thankyou_message");
+          if (thankYouMessage) {
+            thankYouMessage.style.display = "block";
+          }
+        }
+    };
+    // url encode form data for sending as post data
+    var encoded = Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+    }).join('&');
+    xhr.send(encoded);
+  }
+
+  function handleCFormSubmit(event) {  // handles form submit without any jquery
+
 
 
     event.preventDefault(); 
     var form = event.target;
 
-    var answerField = form.querySelector('[name="answer"]'); // Get the answer field
-    if  (answerField == null) {
-      answerField = form.querySelector('[name="campaign_answer"]'); // Get the answer field
-    }
-
-    //alert(answerField);
+    var answerField = form.querySelector('[name="campaign_answer"]'); // Get the answer field
+   
 // Check if the answer is correct
 var userAnswer = answerField.value.trim().toLowerCase(); // Get the answer and convert it to lowercase for case-insensitive comparison
-if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi" && userAnswer !== "veg123") {
+if ( userAnswer !== "veg123") {
     alert("Please enter the correct answer.");
     return; // Return early if the answer is incorrect
 }
@@ -238,7 +285,7 @@ if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "n
 
     var forms = document.querySelectorAll("form.cform");
     for (var i = 0; i < forms.length; i++) {
-      forms[i].addEventListener("submit", handleFormSubmit, false);
+      forms[i].addEventListener("submit", handleCFormSubmit, false);
     }
   };
   document.addEventListener("DOMContentLoaded", loaded, false);
