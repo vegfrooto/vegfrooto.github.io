@@ -56,65 +56,68 @@
      
 
   <!--form starts here of the contact us page-->
-
+  <!-- <form class="cform pure-form pure-form-stacked" method="POST"
+  action="https://script.google.com/macros/s/AKfycbzh9SHfFvnKSdCuixSrsvwdlhFLc6ld5s-lwm5MDeWSMKySNvDZip34ddd_nGOat-wUFA/exec"
+  style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(event)"> -->
   <form class="cform pure-form pure-form-stacked" method="POST"
-action="https://script.google.com/macros/s/AKfycbzh9SHfFvnKSdCuixSrsvwdlhFLc6ld5s-lwm5MDeWSMKySNvDZip34ddd_nGOat-wUFA/exec"
-style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(event)">
+      action="https://script.google.com/macros/s/AKfycbzh9SHfFvnKSdCuixSrsvwdlhFLc6ld5s-lwm5MDeWSMKySNvDZip34ddd_nGOat-wUFA/exec"
+      style="margin-top: 30px; text-align: center;" onsubmit="validateCForm(event)">
+
 
 <div class="form-elements" style="text-align: center;">
-
-  <!-- Answer Field -->
-  <fieldset class="pure-group" style="text-align: center;">
-      <label for="answer" style="display: block; margin-bottom: 5px;">Enter code :</label>
-      <input type="text" id="campaign_answer" name="campaign_answer" required
-             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-  </fieldset>
-
-  <!-- Name Field -->
-  <fieldset class="pure-group" style="text-align: center;">
-      <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
-      <input type="text" id="campaign_name" name="campaign_name" required
-             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-  </fieldset>
-
-  <!-- Email Field -->
-  <fieldset class="pure-group" style="text-align: center;">
-      <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
-      <input type="text" id="campaign_email" name="campaign_email" required
-             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;">
-  </fieldset>
-
-  <!-- Mobile Number Field -->
-  <fieldset class="pure-group" style="text-align: center;">
-      <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
-      <input type="text" id="campaign_mobile" name="campaign_mobile" required pattern="^\{10}$"
-             style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;"
-             placeholder="+91 " title="Please enter a valid mobile number starting with +91 and followed by 10 digits.">
-  </fieldset>
-
-  <!-- campaign_Field -->
-  <fieldset class="pure-group" style="text-align: center;">
-    <input type="hidden" id="campaign" name="campaign_message" value="campaign"
-           style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin: 0 auto;"
-           >
+<!-- Answer Field -->
+<fieldset class="pure-group" style="text-align: center; margin: 0 auto; border: none;">
+  <label for="campaign_answer" style="display: block; margin-bottom: 5px;">Enter code:</label>
+  <input type="text" id="campaign_answer" name="campaign_answer" required
+         style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
 </fieldset>
-  
+
+
+<!-- Name Field -->
+<fieldset class="pure-group" style="text-align: center; margin: 0 auto; border: none;">
+  <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+  <input type="text" id="campaign_name" name="campaign_name" required
+         style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+</fieldset>
+
+
+<!-- Email Field -->
+<fieldset class="pure-group" style="text-align: center; margin: 0 auto; border: none;">
+  <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+  <input type="text" id="campaign_email" name="campaign_email" required
+         style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+</fieldset>
+
+
+<!-- Mobile Number Field -->
+<fieldset class="pure-group" style="text-align: center; margin: 0 auto; border: none;">
+  <label for="mobile" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
+  <input type="text" id="campaign_mobile" name="campaign_mobile" required pattern="^\+91\d{10}$"
+         style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"
+         placeholder="+91 " title="Please enter a valid mobile number starting with +91 and followed by 10 digits.">
+</fieldset>
+
+
+<!-- campaign_Field -->
+<fieldset class="pure-group" style="text-align: center; margin: 0 auto; border: none;">
+  <input type="hidden" id="campaign" name="campaign_message" value="campaign"
+         style="width: 80%; max-width: 600px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+</fieldset>
 
 </div>
+
 <div id="loader" style="display:none; text-align: center;">
-    <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." /> <!-- You can replace this with any loader GIF or animation -->
+<img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." />
 </div>
-<br>
 
 <button class="pure-button" type="csubmit"
       style="margin-top: 20px; padding: 10px 20px; background-color: #18622a; color: white; border: none; border-radius: 5px; cursor: pointer;">
-  Submit
+Submit
 </button>
 
 <div class="thankyou_message" style="display:none;">
-  <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
+<h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
 </div>
-
 </form>
 
   
@@ -129,7 +132,8 @@ style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(eve
           <span style="position: absolute; left: 0; color: #18622A; font-size: 18px;">✔</span> Complete the given form for the verification.
         </li>
         <li style="margin: 10px 0; position: relative; padding-left: 20px;">
-          <span style="position: absolute; left: 0; color: #18622A; font-size: 18px;">✔</span> Share the app with 20+ people and ensure they download it..
+          <span style="position: absolute; left: 0; color: #18622A; font-size: 18px;">✔</span> <p>Share the app with 20+ people and ensure they <a href="https://play.google.com/store/apps/details?id=com.vegfrooto" target="_blank">download it</a>.</p>
+          ..
         </li>
         <li style="margin: 10px 0; position: relative; padding-left: 20px;">
           <span style="position: absolute; left: 0; color: #18622A; font-size: 18px;">✔</span>  Ensure at least 10 people place orders of ₹199+.
@@ -146,7 +150,7 @@ style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(eve
 
     <!-- Ad Section -->
     <div style="text-align: center; margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff;">
-      <p style="margin: 0; font-size: 16px; color: #666;">Advertisement</p>
+      <p style="margin: 0; font-size: 16px; color: #666;"></p>
       <div id="admob-ad" style="margin-top: 10px;"></div>
     </div>
   </section>
@@ -174,7 +178,8 @@ style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(eve
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script> -->
-  
+<!-- <script data-cfasync="false" type="text/javascript" src="playwin.js"></script> -->
+
   <script>
     (function () {
       var admobScript = document.createElement('script');
@@ -196,7 +201,85 @@ style="margin-top: 30px; text-align: center;" onsubmit="return validateCForm(eve
       };
     })();
   </script>
+  <script>
 
-<script data-cfasync="false" type="text/javascript" src="playwin.js"></script>
+document.getElementById('campaign_mobile').addEventListener('input', function(event) {
+        var input = event.target;
+        var value = input.value;
+    
+        // If the value contains exactly 10 digits and no "+91" at the beginning
+        if (value.length === 10 && !value.startsWith("+91")) {
+            input.value = "+91" + value; // Prepend +91 to the number
+        }
+    });
+    async function validateCForm(event) {
+        // Prevent the default form submission to handle validation
+        event.preventDefault();
+
+        const form = event.target;
+        const elements = form.elements;
+    
+        let isValid = true;
+        let campaignAnswerField = null;
+    
+        // Loop through form elements to find the campaign_answer field and validate it
+        for (let i = 0; i < elements.length; i++) {
+            const el = elements[i];
+    
+            if (el.name === "campaign_answer") {
+                campaignAnswerField = el;
+                // Skip further checks for the campaign_answer field (handled separately later)
+                continue;
+            }
+
+            // Add any other validation for other fields here if needed
+        }
+    
+        // Check the campaign_answer field separately
+        if (campaignAnswerField && campaignAnswerField.value.trim() !== "veg123") {
+            isValid = false;
+            alert("Please enter the correct code.");
+        }
+    
+        // If any field is invalid, prevent form submission
+        if (!isValid) {
+            return false;
+        }
+  
+        const loader = document.getElementById("loader");
+        const thankYouMessage = document.querySelector(".thankyou_message");
+  
+        loader.style.display = "block"; // Show the loader
+  
+        // Collect form data
+        const formData = new FormData(form);
+  
+        try {
+            // Send the form data to the server
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+            });
+  
+            const result = await response.json();
+  
+            loader.style.display = "none"; // Hide the loader
+  
+            if (result.result === "success") {
+                // Show the thank-you message
+                thankYouMessage.style.display = "block";
+                form.reset(); // Reset the form after successful submission
+            } else {
+                alert("An error occurred: " + result.message);
+            }
+        } catch (error) {
+            loader.style.display = "none";
+            alert("An error occurred while submitting the form. Please try again.");
+            console.error(error);
+        }
+    }
+</script>
+
+
 </body>
 </html>
