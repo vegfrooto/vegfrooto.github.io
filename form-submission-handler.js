@@ -10,16 +10,6 @@
     }
 });
 
-document.getElementById('campaign_mobile').addEventListener('input', function(event) {
-  var input = event.target;
-  var value = input.value;
-
-  // If the value contains exactly 10 digits and no "+91" at the beginning
-  if (value.length === 10 && !value.startsWith("+91")) {
-      input.value = "+91" + value; // Prepend +91 to the number
-  }
-});
-
 // Function to validate form
 function validateForm(event) {
     var form = event.target;
@@ -34,8 +24,6 @@ function validateForm(event) {
 
         // Skip the honeypot field if it exists
         if (el.answer === "modi" || el.answer === "narendera modi" || el.answer === "damodar modi" ) continue;
-
-      //  if (el.campaign_answer === "veg123") continue;
 
         // Check if the element is required and has a value
         if (el.required && !el.value.trim()) {
@@ -63,51 +51,6 @@ function validateForm(event) {
     // Show thank you message on successful form submission
     form.querySelector('.thankyou_message').style.display = 'block';
     return true;
-}
-
-// Function to validate form
-function validateCForm(event) {
-  var form = event.target;
-  var elements = form.elements;
-
-  // Initialize a flag to track validation success
-  var isValid = true;
-
-  // Loop through all form elements to check for required fields
-  for (var i = 0; i < elements.length; i++) {
-      var el = elements[i];
-
-      // Skip the honeypot field if it exists
-      // if (el.answer === "modi" || el.answer === "narendera modi" || el.answer === "damodar modi" ) continue;
-
-     if (el.campaign_answer === "veg123") continue;
-
-      // Check if the element is required and has a value
-      if (el.required && !el.value.trim()) {
-          isValid = false;
-          // Highlight the invalid field (optional)
-          el.style.borderColor = 'red';
-          // Show a message for the user (optional)
-          if (el.nextElementSibling) {
-              var errorMsg = document.createElement('span');
-              errorMsg.style.color = 'red';
-              errorMsg.textContent = 'This field is required';
-              el.parentNode.appendChild(errorMsg);
-          }
-      } else {
-          el.style.borderColor = '';  // Reset the border color if valid
-      }
-  }
-
-  // If any field is invalid, prevent form submission
-  if (!isValid) {
-      event.preventDefault();
-      return false;
-  }
-
-  // Show thank you message on successful form submission
-  form.querySelector('.thankyou_message').style.display = 'block';
-  return true;
 }
 
 // To prevent the error message from showing after the user fixes the input
@@ -173,73 +116,18 @@ document.querySelectorAll("input, textarea").forEach(function(el) {
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
 
+
+
     event.preventDefault(); 
     var form = event.target;
 
     var answerField = form.querySelector('[name="answer"]'); // Get the answer field
-   
-var userAnswer = answerField.value.trim().toLowerCase(); // Get the answer and convert it to lowercase for case-insensitive comparison
-if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi" ) {
-    alert("Please enter the correct answer.");
-    return; // Return early if the answer is incorrect
-}
-
-
-
-    // we are submitting via xhr below
-    var form = event.target;
-    var formData = getFormData(form)
-    var data = formData.data;
-
-    // If a honeypot field is filled, assume it was done so by a spam bot.
-    if (formData.honeypot) {
-      return false;
-    }
-
-    disableAllButtons(form);
-    var url = form.action;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    // xhr.withCredentials = true;
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-          }
-        }
-    };
-    // url encode form data for sending as post data
-    var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-    }).join('&');
-    xhr.send(encoded);
-  }
-
-  function handleCFormSubmit(event) {  // handles form submit without any jquery
-
-
-
-    event.preventDefault(); 
-    var form = event.target;
-
-    var answerField = form.querySelector('[name="campaign_answer"]'); // Get the answer field
-   
 // Check if the answer is correct
 var userAnswer = answerField.value.trim().toLowerCase(); // Get the answer and convert it to lowercase for case-insensitive comparison
-if ( userAnswer !== "veg123") {
-    alert("Please enter the correct answer.");
+if (userAnswer !== "modi" && userAnswer !== "narendra modi" && userAnswer !== "narendra damodardas modi") {
+    alert("Please enter the correct answer for the Prime Minister of India.");
     return; // Return early if the answer is incorrect
 }
-
-
-
     // we are submitting via xhr below
     var form = event.target;
     var formData = getFormData(form)
@@ -281,11 +169,6 @@ if ( userAnswer !== "veg123") {
     var forms = document.querySelectorAll("form.gform");
     for (var i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
-    }
-
-    var forms = document.querySelectorAll("form.cform");
-    for (var i = 0; i < forms.length; i++) {
-      forms[i].addEventListener("submit", handleCFormSubmit, false);
     }
   };
   document.addEventListener("DOMContentLoaded", loaded, false);
